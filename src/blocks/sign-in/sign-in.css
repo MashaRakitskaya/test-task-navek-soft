@@ -1,0 +1,7 @@
+.sign-in {
+    background-color: #000000;
+    min-height: 601px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

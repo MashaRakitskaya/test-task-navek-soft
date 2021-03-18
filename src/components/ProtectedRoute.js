@@ -7,7 +7,7 @@ const ProtectedRoute = ({ component: Component, ...props }) => {
     //Если залогенены то переходим в main иначе на станицу входа
     <Route>
       {
-        () => props.loggedIn === true ? <Component {...props} /> : <Redirect to="./sign-in" />
+        () => props.loggedIn === true ? <Component {...props} /> : <Redirect to="/signin" />
       }
     </Route>
   )

@@ -3,4 +3,22 @@
 
 @import url(./blocks/page/page.css);
 @import url(./blocks/page/__container/page__container.css);
+
 @import url(./blocks/header/header.css);
+@import url(./blocks/header/__registration/header__registration.css);
+@import url(./blocks/header/__login/header__login.css);
+
+@import url(./blocks/sign-up/sign-up.css);
+@import url(./blocks/sign-up/__form/sign-up__form.css);
+@import url(./blocks/sign-up/__input/sign-up__input.css);
+@import url(./blocks/sign-up/__title/sign-up__title.css);
+@import url(./blocks/sign-up/__save/sign-up__save.css);
+
+@import url(./blocks/sign-in/sign-in.css);
+@import url(./blocks/sign-in/__form/sing-in__form.css);
+@import url(./blocks/sign-in/__input/sing-in__input.css);
+@import url(./blocks/sign-in/__title/sing-in__title.css);
+@import url(./blocks/sign-in/__save/sing-in__save.css);
+
+@import url(./blocks/footer/footer.css);
+@import url(./blocks/footer/__copyright/footer__copyright.css);
