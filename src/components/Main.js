@@ -11,9 +11,6 @@ function Main({ reviews }) {
                             <Review
                                 key={item.id}
                                 review={item}
-                                // onCardClick={handleCardClick}
-                                // onCardLike={handleLikeClick}
-                                // onCardDelete={handleCardDelete}
                             />
                         )
                     } 
