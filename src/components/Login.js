@@ -25,7 +25,7 @@ function Login({ onLogin }) {
 
     return(
         <section className="sing-in">
-            <h3 className="sing-in__title">Регистрация</h3>
+            <h3 className="sing-in__title">Вход</h3>
             <form onSubmit={handleSubmit} className="sing-in__form" noValidate>
                 <input
                     value={data.email}
@@ -47,7 +47,7 @@ function Login({ onLogin }) {
                     placeholder="Пароль"
                 />
 
-                <button type="submit" className="sing-in__save" value="Зарегистрироваться">Зарегистрироваться</button>
+                <button type="submit" className="sing-in__save" value="Зарегистрироваться">Войти</button>
             </form>
         </section>
     );

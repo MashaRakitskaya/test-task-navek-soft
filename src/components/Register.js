@@ -3,10 +3,11 @@ import { useState } from 'react';
 function Register({ onRegister }) {
     //исходные данные
     const initialData = {
-        avatar: '',
+        // avatar: '',
         email: '',
         name: '',
-        password: ''
+        password: '',
+        password_confirmation: ''
     };
     const [data, setData] = useState(initialData);
 
@@ -21,14 +22,15 @@ function Register({ onRegister }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        onRegister(data.avatar, data.email, data.name, data.password);
+        onRegister(data.email, data.name, data.password, data.password_confirmation);
     };
+
 
     return(
         <section className="sign-up">
             <h3 className="sign-up__title">Регистрация</h3>
             <form onSubmit={handleSubmit} className="sign-up__form" noValidate>
-                <input
+                {/* <input
                     value={data.avatar}
                     id='sign-up-avatar-input'
                     className="sign-up__input sign-up__input_type_avatar"
@@ -36,7 +38,7 @@ function Register({ onRegister }) {
                     name="avatar"
                     onChange={handleChange}
                     placeholder="Ссылка на аватарку"
-                />
+                /> */}
 
                 <input
                     value={data.email}
@@ -66,6 +68,16 @@ function Register({ onRegister }) {
                     name="password"
                     onChange={handleChange}
                     placeholder="Пароль"
+                />
+
+                <input
+                    value={data.password_confirmation}
+                    id='sign-up-password-input'
+                    className="sign-up__input sign-up__input_type_password-сonfirmation"
+                    type="password"
+                    name="password_confirmation"
+                    onChange={handleChange}
+                    placeholder="Подтвердите пароль"
                 />
 
                 <button type="submit" className="sign-up__save" value="Зарегистрироваться">Зарегистрироваться</button>

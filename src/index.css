@@ -20,5 +20,10 @@
 @import url(./blocks/sign-in/__title/sing-in__title.css);
 @import url(./blocks/sign-in/__save/sing-in__save.css);
 
+@import url(./blocks/elements/elements.css);
+@import url(./blocks/element/element.css);
+@import url(./blocks/element/__title/element__title.css);
+@import url(./blocks/element/__message/element__message.css);
+
 @import url(./blocks/footer/footer.css);
 @import url(./blocks/footer/__copyright/footer__copyright.css);
