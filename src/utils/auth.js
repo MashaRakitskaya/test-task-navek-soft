@@ -42,7 +42,9 @@ export const authorize = (email, password) => {
       body: JSON.stringify({ email, password })
     })
     .then(response => checkAnswerCorrectness(response))
+    
 };
+// localStorage.setItem('token', response.token.access_token)
 
 // export const checkToken = (token) => {
 //   return fetch(`${BASE_URL}/users/me`, {
