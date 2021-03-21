@@ -22,9 +22,9 @@ function App() {
     // const [currentUser, setCurrentUser] = useState({});
     // const [token, setToken] = useState(localStorage.getItem('token'));
 
-    function handleRegister(email, name, password, password_confirmation) {
-        console.log(auth.register(email, name, password, password_confirmation));
-        auth.register(email, name, password, password_confirmation)
+    function handleRegister(avatar, email, name, password, password_confirmation) {
+        console.log(auth.register(avatar, email, name, password, password_confirmation));
+        auth.register(avatar, email, name, password, password_confirmation)
         .then((result) => {
             // handleInfoTooltip()
             console.log(result);
@@ -123,7 +123,6 @@ function App() {
 
                         <Route path="/signin">
                             <Login onLogin={handleLogin} handleTokenCheck={handleTokenCheck} />
-                            {/* <Login onLogin={handleLogin} /> */}
                         </Route>
                         
                         <Route>

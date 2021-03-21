@@ -1,7 +1,10 @@
-.sign-in {
+.sing-in {
     background-color: #000000;
     min-height: 601px;
     width: 100%;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    /* max-width: 430px; */
+    align-items: center;
 }

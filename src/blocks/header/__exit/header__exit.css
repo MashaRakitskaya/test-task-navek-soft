@@ -1,4 +1,4 @@
-.header__registration {
+.header__exit {
     text-decoration: none;
     align-self: center;
     outline: none;
@@ -16,6 +16,6 @@
     opacity: 1;
     transition: opacity 0.2s ease;
 }
-.header__registration:hover {
+.header__exit:hover {
     opacity: 0.6;
 }

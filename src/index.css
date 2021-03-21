@@ -7,18 +7,30 @@
 @import url(./blocks/header/header.css);
 @import url(./blocks/header/__registration/header__registration.css);
 @import url(./blocks/header/__login/header__login.css);
+@import url(./blocks/header/__exit/header__exit.css);
 
-@import url(./blocks/sign-up/sign-up.css);
-@import url(./blocks/sign-up/__form/sign-up__form.css);
-@import url(./blocks/sign-up/__input/sign-up__input.css);
-@import url(./blocks/sign-up/__title/sign-up__title.css);
-@import url(./blocks/sign-up/__save/sign-up__save.css);
-
-@import url(./blocks/sign-in/sign-in.css);
+@import url(./blocks/sign-in/sing-in.css);
+@import url(./blocks/sign-in/__content/sign-in__content.css);
 @import url(./blocks/sign-in/__form/sing-in__form.css);
 @import url(./blocks/sign-in/__input/sing-in__input.css);
 @import url(./blocks/sign-in/__title/sing-in__title.css);
 @import url(./blocks/sign-in/__save/sing-in__save.css);
+
+@import url(./blocks/sign-up/sign-up.css);
+@import url(./blocks/sign-up/__content/sign-up__content.css);
+@import url(./blocks/sign-up/__form/sign-up__form.css);
+@import url(./blocks/sign-up/__input/sign-up__input.css);
+@import url(./blocks/sign-up/__input-label-password-confirmation/sign-up__input-label-password-confirmation.css);
+@import url(./blocks/sign-up/__input-label-avatar/sign-up__input-label-avatar.css);
+@import url(./blocks/sign-up/__title/sign-up__title.css);
+@import url(./blocks/sign-up/__save/sign-up__save.css);
+
+/* @import url(./blocks/sign-in/sign-in.css);
+@import url(./blocks/sign-in/__form/sign-in__form.css);
+@import url(./blocks/sign-in/__input/sign-in__input.css);
+@import url(./blocks/sign-in/__title/sign-in__title.css);
+@import url(./blocks/sign-in/__save/sign-in__save.css); */
+/* @import url(./blocks/sign-in/__input-label/sing-in__input-label.css); */
 
 @import url(./blocks/elements/elements.css);
 @import url(./blocks/element/element.css);

@@ -6,7 +6,7 @@
     border-bottom: 1px solid rgba(84, 84, 84, 0.7);
     align-items: center;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
 @media screen and (max-width: 882px) {

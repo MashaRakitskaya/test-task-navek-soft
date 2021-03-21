@@ -20,14 +20,14 @@ const checkAnswerCorrectness = (response) => {
 //     .then(response => checkAnswerCorrectness(response))
 // };
 
-export const register = (email, name, password, password_confirmation) => {
+export const register = (avatar, email, name, password, password_confirmation) => {
   return fetch(`${BASE_URL}/api/v1/auth/register`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-     body: JSON.stringify({ email, name, password, password_confirmation })
+     body: JSON.stringify({ avatar, email, name, password, password_confirmation })
   })
   .then(response => checkAnswerCorrectness(response))
 };
