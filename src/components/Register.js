@@ -175,24 +175,41 @@ function Register({ onRegister }) {
     // const [data, setData] = useState(initialData);
 
     
-    //исходные данные
+    //данные email
     const [email, setEmail] = useState('');
-    //исходные данные
+    //данные name
+    const [name, setName] = useState('');
+    //данные password
     const [password, setPassword] = useState('');
+    //данные passwordСonfirmation
+    const [passwordСonfirmation, setPasswordСonfirmation] = useState('');
+    
     //были или не были в input
     const [emailDirty, setEmailDirty] = useState(false);
     //были или не были в input
+    const [nameDirty, setNameDirty] = useState(false);
+    //были или не были в input
     const [passwordDirty, setPasswordDirty] = useState(false);
+    //были или не были в input
+    const [passwordСonfirmationDirty, setPasswordСonfirmationDirty] = useState(false);
+    
+    
     //отрожает ошибку email
     const [emailError, setEmailError] = useState('Email не должен быть пустым');
+    //отрожает ошибку name
+    const [nameError, setNameError] = useState('Имя не должен быть пустым');
     //отрожает ошибку password
     const [passwordError, setPasswordError] = useState('Пароль не должен быть пустым');
+    //отрожает ошибку passwordСonfirmation
+    const [passwordСonfirmationError, setPasswordСonfirmationError] = useState('Подтверждение пароля не должно быть пустым');
+    
+
     //валидна форма или нет
     const [formValid, setFormValid] = useState(false);
 
     //валидна форма или нет
     useEffect(() => {
-        if(emailError || passwordError) {
+        if(emailError || nameError || passwordError  || passwordСonfirmationError) {
             //если возникли ошибки форма не валидна
             setFormValid(false);
             // buttonSignUpSave.classList.add(buttonSignUpDisabled);
@@ -200,16 +217,22 @@ function Register({ onRegister }) {
             //если ошибок нет то форма валидна
             setFormValid(true);
         }
-    },[emailError, passwordError]);
+    },[emailError, nameError, passwordError, passwordСonfirmationError]);
     //Пользователь покинул поле ввода
     const handlerBlur = (event) => {
         switch(event.target.name) {
             case 'email':
                 setEmailDirty(true)
                 break
+            case 'name':
+                setNameDirty(true)
+                break
             case 'password':
                 setPasswordDirty(true)
                 break
+            case 'password_confirmation':
+                setPasswordСonfirmationDirty(true)
+            break
         }
     };
     //если введен некорректный email то уведомляем
@@ -226,11 +249,26 @@ function Register({ onRegister }) {
         }
     };
 
+
+    //если введен длинный name то уведомляем
+    const nameHandler = (event) => {
+        setName(event.target.value);
+        if(event.target.value.length > 255) {
+            setNameError('Имя должено быть меньше 255-ти символов');
+            if(!event.target.value) {
+                setNameError('Имя не должен быть пустым')  
+            }
+        }
+        else {
+            setNameError('')
+        }
+    };
+
     //если введен короткий password то уведомляем
     const passwordHandler = (event) => {
         setPassword(event.target.value);
-        if(event.target.value.length < 2) {
-            setPasswordError('Пароль должен быть больше 2-ух символов');
+        if(event.target.value.length < 8) {
+            setPasswordError('Пароль должен быть больше 8-ми символов');
             if(!event.target.value) {
                 setPasswordError('Пароль не должен быть пустым')  
             }
@@ -241,6 +279,51 @@ function Register({ onRegister }) {
             setPasswordError('')
         }
     };
+
+    
+
+    //если введен короткий passwordСonfirmation то уведомляем
+    const passwordСonfirmationHandler = (event) => {
+        setPasswordСonfirmation(event.target.value);
+       
+        if(event.target.value.length < 8) {
+            setPasswordСonfirmationError('Пароль должен быть больше 8-ми символов');
+            if(!event.target.value) {
+                setPasswordСonfirmationError('Пароль не должен быть пустым')  
+            }
+        } else if(event.target.value.length > 255) {
+            setPasswordСonfirmationError('Пароль должен быть меньше 255-ти символов')
+        }
+        else if(event.target.value !== password) {
+            setPasswordСonfirmationError('Пароли не совпадают');
+        }
+        // else if(setPasswordСonfirmation(event.target.value) === setPassword(event.target.value)) {
+        //     setPasswordСonfirmationError('') 
+        //     if(setPasswordСonfirmation(event.target.value) !== setPassword(event.target.value)) {
+        //         setPasswordСonfirmationError('Пароли не совпадают')
+        //     }
+        // }
+        else {
+            setPasswordСonfirmationError('')
+        }
+        
+    };
+
+    // useEffect((event) => {
+    //     setPasswordСonfirmation(event.target.value);
+    //     if(password !== passwordСonfirmation) {
+    //         setPasswordСonfirmationError('Пароли не совпадают');
+    //     } else if(event.target.value.length < 8) {
+    //         setPasswordСonfirmationError('Пароль должен быть больше 8-ми символов');
+    //         if(!event.target.value) {
+    //             setPasswordСonfirmationError('Пароль не должен быть пустым')  
+    //         }
+    //     } else if(event.target.value.length > 255) {
+    //         setPasswordСonfirmationError('Пароль должен быть меньше 255-ти символов')
+    //     } else {
+    //         setPasswordСonfirmationError('')
+    //     }
+    // },[password, passwordСonfirmation]);
 
 
     // const handleChange = (event) => {
@@ -318,7 +401,6 @@ function Register({ onRegister }) {
                         onBlur={event => handlerBlur(event)}
                         onChange={event => emailHandler(event)}
                     />
-
                     {(emailDirty && emailError) &&
                         <label 
                         className="sign-up__input-label"
@@ -329,16 +411,25 @@ function Register({ onRegister }) {
                     }
 
                     <input
-                        // value={data.name}
+                        value={name}
                         id='sign-up-name-input'
                         className="sign-up__input sign-up__input_type_name"
                         type="text"
                         name="name"
-                        // onChange={handleChange}
+                        onBlur={event => handlerBlur(event)}
+                        onChange={ event => nameHandler(event)}
                         placeholder="Имя"
                         maxLength="255"
                         required
                     />
+                    {(nameDirty && nameError) &&
+                        <label 
+                        className="sign-up__input-label"
+                        htmlFor="sign-up-name-input"
+                        >
+                           {nameError} 
+                        </label>
+                    }
 
                     
                     <input
@@ -349,13 +440,12 @@ function Register({ onRegister }) {
                         name="password"
                         // onChange={handleChange}
                         placeholder="Пароль"
-                        minLength="2"
-                        maxLength="255"
+                        // minLength="2"
+                        // maxLength="255"
                         required
                         onBlur={event => handlerBlur(event)}
                         onChange={event => passwordHandler(event)}
                     />
-
                     {(passwordDirty && passwordError) &&
                         <label 
                         className="sign-up__input-label"
@@ -366,18 +456,26 @@ function Register({ onRegister }) {
                     }
                     
                     <input
-                        // value={data.password_confirmation}
+                        value={passwordСonfirmation}
                         id='sign-up-password-confirmation-input'
                         className="sign-up__input sign-up__input_type_password-сonfirmation"
                         type="password"
                         name="password_confirmation"
-                        // onChange={handleChange}
+                        onBlur={event => handlerBlur(event)}
+                        onChange={event => passwordСonfirmationHandler(event)}
                         placeholder="Подтвердите пароль"
                         // minLength="2"
                         // maxLength="255"
                         required
                     />
-                    {/* <label className="sign-up__input-label-password-confirmation" htmlFor="sign-up-password-confirmation-input"></label> */}
+                    {(passwordСonfirmationDirty && passwordСonfirmationError) &&
+                        <label 
+                        className="sign-up__input-label"
+                        htmlFor="sign-up-password-confirmation-input"
+                        >
+                           {passwordСonfirmationError} 
+                        </label>
+                    }
 
                     <button
                         //если форма не валидна то кнопка не доступна
