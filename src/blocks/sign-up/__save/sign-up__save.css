@@ -18,6 +18,12 @@
 .sign-up__save:hover {
     opacity: 0.85;
 }
+
+.sign-up__save:disabled {
+    background: #a9a9a9;
+    border: 1px solid  rgba(0, 0, 0, .2);
+    color: rgba(0, 0, 0, .5);
+}
 @media screen and (max-width: 730px) {
     .sign-up__save {
         font-size: 16px;
