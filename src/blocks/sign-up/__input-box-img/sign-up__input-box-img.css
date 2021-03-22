@@ -1,0 +1,12 @@
+.sign-up__input-box-img {
+    margin-top: 5px;
+    height: 80px;
+    width: 80px;
+    border: 2px solid #FCD200;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+.sign-up__input-box-img:hover {
+    opacity: 0.6;
+}
