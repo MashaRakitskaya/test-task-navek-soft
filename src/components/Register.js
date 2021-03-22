@@ -164,7 +164,7 @@ function Register({ onRegister }) {
 
     const uploadedImage = useRef(null);
     const imageUploader = useRef(null);
-    //исходные данные
+    //данные исходные
     const initialData = {
         avatar: '',
         email: '',
