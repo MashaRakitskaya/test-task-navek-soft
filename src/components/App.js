@@ -23,7 +23,7 @@ function App() {
     // const [token, setToken] = useState(localStorage.getItem('token'));
 
     function handleRegister(avatar, email, name, password, password_confirmation) {
-        console.log(auth.register(avatar, email, name, password, password_confirmation));
+        // console.log(auth.register(avatar, email, name, password, password_confirmation));
         auth.register(avatar, email, name, password, password_confirmation)
         .then((result) => {
             // handleInfoTooltip()

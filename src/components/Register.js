@@ -184,7 +184,7 @@ function Register({ onRegister }) {
     //данные password
     const [password, setPassword] = useState('');
     //данные passwordСonfirmation
-    const [passwordСonfirmation, setPasswordСonfirmation] = useState('');
+    const [password_confirmation, setPasswordСonfirmation] = useState('');
     
     //были или не были в input
     const [emailDirty, setEmailDirty] = useState(false);
@@ -317,25 +317,6 @@ function Register({ onRegister }) {
         }
     };
 
-
-
-    // useEffect((event) => {
-    //     setPasswordСonfirmation(event.target.value);
-    //     if(password !== passwordСonfirmation) {
-    //         setPasswordСonfirmationError('Пароли не совпадают');
-    //     } else if(event.target.value.length < 8) {
-    //         setPasswordСonfirmationError('Пароль должен быть больше 8-ми символов');
-    //         if(!event.target.value) {
-    //             setPasswordСonfirmationError('Пароль не должен быть пустым')  
-    //         }
-    //     } else if(event.target.value.length > 255) {
-    //         setPasswordСonfirmationError('Пароль должен быть меньше 255-ти символов')
-    //     } else {
-    //         setPasswordСonfirmationError('')
-    //     }
-    // },[password, passwordСonfirmation]);
-
-
     // const handleChange = (event) => {
     //     const { name, value } = event.target;
     //     //инпуты определяются по имени, одна функция на несколько инпутов указываем что их нужно различать по имени.
@@ -350,54 +331,19 @@ function Register({ onRegister }) {
     //     onRegister( data.avatar, data.email, data.name, data.password, data.password_confirmation);
     // };
 
-    // const handleImageUpload = e => {
-    //     const [file] = e.target.files;
-    //     if (file) {
-    //     const reader = new FileReader();
-    //     const {current} = uploadedImage;
-    //     current.file = file;
-    //     reader.onload = (e) => {
-    //         current.src = e.target.result;
-    //     }
-    //     reader.readAsDataURL(file);
-    //     }
-    // };
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        onRegister( avatar, email, name, password, password_confirmation);
+    };
+
+    
 
     return(
         <section className="sign-up">
             <div className="sign-up__content">
                 <h3 className="sign-up__title">Регистрация</h3>
-                {/* <form onSubmit={handleSubmit} className="sign-up__form" noValidate> */}
-                <form className="sign-up__form" noValidate>
-                    {/* <label className="sign-up__input-label-avatar" htmlFor="sign-up-avatar-input">Добавьте jpeg/bmp/png картинку размером не более 10МБ</label>
-                    <input
-                        // value={data.avatar}
-                        id='sign-up-avatar-input'
-                        className="sign-up__input sign-up__input_type_avatar"
-                        type="file"
-                        accept="image/jpeg, image/bmp, image/png"
-                        // multiple = "false"
-                        data-max-size="10000"
-                        name="avatar"
-                        // onChange={handleChange}
-                        placeholder="Ссылка на аватарку"
-                        // onChange={handleImageUpload}
-                        ref={imageUploader}
-                        style={{
-                            display: "none"
-                        }}
-                    />
-                    <div
-                        className="sign-up__input-box-img"
-                        onClick={() => imageUploader.current.click()}
-                    >
-                        <img
-                            className="sign-up__input-img"
-                            ref={uploadedImage}
-                        />
-                    </div> */}
-
-                    {/* <p className="sign-up__input-label-avatar">Добавьте jpeg/bmp/png картинку размером не более 10МБ</p> */}
+                <form onSubmit={handleSubmit} className="sign-up__form" noValidate>
+                {/* <form className="sign-up__form" noValidate> */}
                     <p className="sign-up__avatar-upload-text">Добавьте jpeg/bmp/png картинку размером не более 10МБ 
                         <span className="sign-up__optional-input"> *необязательное поле</span>
                     </p>
@@ -484,7 +430,7 @@ function Register({ onRegister }) {
                     }
                     
                     <input
-                        value={passwordСonfirmation}
+                        value={password_confirmation}
                         id='sign-up-password-confirmation-input'
                         className="sign-up__input sign-up__input_type_password-сonfirmation"
                         type="password"

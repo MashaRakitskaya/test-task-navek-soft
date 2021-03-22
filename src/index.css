@@ -13,6 +13,7 @@
 @import url(./blocks/sign-in/__content/sign-in__content.css);
 @import url(./blocks/sign-in/__form/sing-in__form.css);
 @import url(./blocks/sign-in/__input/sing-in__input.css);
+@import url(./blocks/sign-in/__input-label/sing-in__input-label.css);
 @import url(./blocks/sign-in/__title/sing-in__title.css);
 @import url(./blocks/sign-in/__save/sing-in__save.css);
 
