@@ -126,7 +126,8 @@ function Register({ onRegister }) {
             setAvatarError('')
         } else if (!imageFile.name.match(/\.(jpeg|bmp|png)$/)) {
             setAvatarError('Выберите формат jpeg/bmp/png')
-        } else if(imageFile.size > 10240) {
+        } else if(imageFile.size > 1e+7) {
+            console.log(imageFile.size);
             setAvatarError('Выберите картинку меньше 10МБ')
         } else {
             setAvatarError('')
