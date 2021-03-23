@@ -75,10 +75,10 @@ function Register({ onRegister }) {
     const nameHandler = (event) => {
         setName(event.target.value);
         if(event.target.value.length > 255) {
-            setNameError('Имя должено быть меньше 255-ти символов');
             if(!event.target.value) {
                 setNameError('Имя не должен быть пустым')  
             }
+            setNameError('Имя должено быть меньше 255-ти символов');
         }
         else {
             setNameError('')
@@ -132,7 +132,7 @@ function Register({ onRegister }) {
             setAvatarError('')
         }
     };
-    
+
     //обработчик сабмита
     const handleSubmit = (event) => {
         event.preventDefault();
