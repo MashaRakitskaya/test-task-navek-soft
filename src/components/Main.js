@@ -2,7 +2,6 @@ import React from 'react';
 import Review from "./Review.js";
 
 function Main({ reviews }) {
-
     return(
         <main className="content">
             <section className="elements">
@@ -15,7 +14,6 @@ function Main({ reviews }) {
                         )
                     } 
                 )}
-
             </section>
         </main>
     )

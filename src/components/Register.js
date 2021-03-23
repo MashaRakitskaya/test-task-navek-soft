@@ -1,180 +1,6 @@
-// import { useState, useRef } from 'react';
-
-// function Register({ onRegister }) {
-//     //исходные данные
-//     const initialData = {
-//         avatar: '',
-//         email: '',
-//         name: '',
-//         password: '',
-//         password_confirmation: ''
-//     };
-//     const [data, setData] = useState(initialData);
-//     // const passwordConfirmationError = document.querySelector('.sign-up__input-label-password-confirmation');
-
-//     // const [password, setPassword] = useState({password: ''});
-//     // const [passwordConfirmation, setPasswordConfirmation] = useState({password_confirmation: ''});
-
-//     const handleChange = (event) => {
-//         const { name, value } = event.target;
-        
-//         //инпуты определяются по имени, одна функция на несколько инпутов указываем что их нужно различать по имени.
-//         setData(data => ({
-//           ...data,
-//           [name]: value,
-//         }));
-
-//         // if(data.password !== data.password_confirmation) {
-            
-//         // } else {
-//         //     passwordConfirmationError.textContent = "Подтверждение пароля не совпадает"
-//         // }
-
-//     };
-
-//     const handleSubmit = (event) => {
-//         event.preventDefault();
-//         onRegister( data.avatar, data.email, data.name, data.password, data.password_confirmation);
-
-//         // if(data.password !== data.password_confirmation) {
-//         //     passwordConfirmationError.textContent = "Подтверждение пароля не совпадает"
-//         // }
-//     };
-
-//     const uploadedImage = useRef(null);
-//     const imageUploader = useRef(null);
-
-//     const handleImageUpload = e => {
-//         const [file] = e.target.files;
-//         if (file) {
-//         const reader = new FileReader();
-//         const {current} = uploadedImage;
-//         current.file = file;
-//         reader.onload = (e) => {
-//             current.src = e.target.result;
-//         }
-//         reader.readAsDataURL(file);
-//         }
-//     };
-
-
-//     return(
-//         <section className="sign-up">
-//             <div className="sign-up__content">
-//                 <h3 className="sign-up__title">Регистрация</h3>
-//                 <form onSubmit={handleSubmit} className="sign-up__form" noValidate>
-//                     <label className="sign-up__input-label-avatar" htmlFor="sign-up-avatar-input">Добавьте файл размером не более 10МБ</label>
-//                     <input
-//                         value={data.avatar}
-//                         id='sign-up-avatar-input'
-//                         className="sign-up__input sign-up__input_type_avatar"
-//                         type="file"
-//                         accept="image/jpeg, image/bmp, image/png"
-//                         multiple = "false"
-//                         data-max-size="10000"
-//                         name="avatar"
-//                         onChange={handleChange}
-//                         placeholder="Ссылка на аватарку"
-//                         onChange={handleImageUpload}
-//                         ref={imageUploader}
-//                         style={{
-//                             display: "none"
-//                         }}
-//                     />
-//                     <div
-//                         className="sign-up__input-box-img"
-//                         onClick={() => imageUploader.current.click()}
-//                     >
-//                         <img
-//                             className="sign-up__input-img"
-//                             ref={uploadedImage}
-//                         />
-//                     </div>
-
-//                     <input
-//                         value={data.email}
-//                         id='sign-up-email-input'
-//                         className="sign-up__input sign-up__input_type_email"
-//                         type="email"
-//                         name="email"
-//                         onChange={handleChange}
-//                         placeholder="Email"
-//                         maxLength="255"
-//                         required 
-//                     />
-
-//                     <input
-//                         value={data.name}
-//                         id='sign-up-name-input'
-//                         className="sign-up__input sign-up__input_type_name"
-//                         type="text"
-//                         name="name"
-//                         onChange={handleChange}
-//                         placeholder="Имя"
-//                         maxLength="255"
-//                         required
-//                     />
-
-//                     <input
-//                         value={data.password}
-//                         id='sign-up-password-input'
-//                         className="sign-up__input sign-up__input_type_password"
-//                         type="password"
-//                         name="password"
-//                         onChange={handleChange}
-//                         placeholder="Пароль"
-//                         minLength="2"
-//                         maxLength="255"
-//                         required
-//                     />
-                    
-//                     <input
-//                         value={data.password_confirmation}
-//                         id='sign-up-password-confirmation-input'
-//                         className="sign-up__input sign-up__input_type_password-сonfirmation"
-//                         type="password"
-//                         name="password_confirmation"
-//                         onChange={handleChange}
-//                         placeholder="Подтвердите пароль"
-//                         minLength="2"
-//                         maxLength="255"
-//                         required
-//                     />
-//                     {/* <label className="sign-up__input-label-password-confirmation" htmlFor="sign-up-password-confirmation-input"></label> */}
-
-//                     <button type="submit" className="sign-up__save" value="Зарегистрироваться">Зарегистрироваться</button>
-//                 </form>
-//             </div>
-            
-//         </section>
-//     );
-// }
-// export default Register;
-
-
-
-
-
-
-
-
 import { useState, useEffect } from 'react';
 
 function Register({ onRegister }) {
-
-    // const uploadedImage = useRef(null);
-    // const imageUploader = useRef(null);
-
-    // //данные исходные
-    // const initialData = {
-    //     avatar: '',
-    //     email: '',
-    //     name: '',
-    //     password: '',
-    //     password_confirmation: ''
-    // };
-    // const [data, setData] = useState(initialData);
-
     //данные avatar
     const [avatar, setAvatar] = useState('');
     //данные email
@@ -188,25 +14,17 @@ function Register({ onRegister }) {
     
     //были или не были в input
     const [emailDirty, setEmailDirty] = useState(false);
-    //были или не были в input
     const [nameDirty, setNameDirty] = useState(false);
-    //были или не были в input
     const [passwordDirty, setPasswordDirty] = useState(false);
-    //были или не были в input
     const [passwordСonfirmationDirty, setPasswordСonfirmationDirty] = useState(false);
     
-    //отражает ошибку avatar
+    //отражает ошибку под input
     const [avatarError, setAvatarError] = useState('');
-    //отражает ошибку email
     const [emailError, setEmailError] = useState('Email не должен быть пустым');
-    //отражает ошибку name
     const [nameError, setNameError] = useState('Имя не должен быть пустым');
-    //отражает ошибку password
     const [passwordError, setPasswordError] = useState('Пароль не должен быть пустым');
-    //отражает ошибку passwordСonfirmation
     const [passwordСonfirmationError, setPasswordСonfirmationError] = useState('Подтверждение пароля не должно быть пустым');
     
-
     //валидна форма или нет
     const [formValid, setFormValid] = useState(false);
 
@@ -215,12 +33,12 @@ function Register({ onRegister }) {
         if(emailError || nameError || passwordError  || passwordСonfirmationError) {
             //если возникли ошибки форма не валидна
             setFormValid(false);
-            // buttonSignUpSave.classList.add(buttonSignUpDisabled);
         } else {
             //если ошибок нет то форма валидна
             setFormValid(true);
         }
     },[emailError, nameError, passwordError, passwordСonfirmationError]);
+
     //Пользователь покинул поле ввода
     const handlerBlur = (event) => {
         switch(event.target.name) {
@@ -238,6 +56,7 @@ function Register({ onRegister }) {
                 break
         }
     };
+
     //если введен некорректный email то уведомляем
     const emailHandler = (event) => {
         setEmail(event.target.value)
@@ -251,7 +70,6 @@ function Register({ onRegister }) {
             setEmailError('')
         }
     };
-
 
     //если введен длинный name то уведомляем
     const nameHandler = (event) => {
@@ -286,7 +104,6 @@ function Register({ onRegister }) {
     //если введен короткий passwordСonfirmation то уведомляем
     const passwordСonfirmationHandler = (event) => {
         setPasswordСonfirmation(event.target.value);
-       
         if(event.target.value.length < 8) {
             setPasswordСonfirmationError('Пароль должен быть больше 8-ми символов');
             if(!event.target.value) {
@@ -300,9 +117,8 @@ function Register({ onRegister }) {
         } else {
             setPasswordСonfirmationError('')
         }
-        
     };
-
+    //если картинка не того размера или слишком большая то уведомляем
     const onChangeFile = (event) => {
         setAvatar(event.target.value);
         const imageFile = event.target.files[0];
@@ -316,44 +132,18 @@ function Register({ onRegister }) {
             setAvatarError('')
         }
     };
-
-    // const handleChange = (event) => {
-    //     const { name, value } = event.target;
-    //     //инпуты определяются по имени, одна функция на несколько инпутов указываем что их нужно различать по имени.
-    //     setData(data => ({
-    //       ...data,
-    //       [name]: value,
-    //     }));
-    // };
-
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     onRegister( data.avatar, data.email, data.name, data.password, data.password_confirmation);
-    // };
-
-    // function checkEmail(response) {
-    //     // raises an error in case response status is not a success
-    //     if (response.status === 422 ) {
-    //         setEmailError('Пользователь с таким email уже существует')
-    //     } else {
-    //         setEmailError('')
-    //     }
-    // };
-
+    
+    //обработчик сабмита
     const handleSubmit = (event) => {
         event.preventDefault();
         onRegister( avatar, email, name, password, password_confirmation);
     };
-
-
-    
 
     return(
         <section className="sign-up">
             <div className="sign-up__content">
                 <h3 className="sign-up__title">Регистрация</h3>
                 <form onSubmit={handleSubmit} className="sign-up__form" noValidate>
-                {/* <form className="sign-up__form" noValidate> */}
                     <p className="sign-up__avatar-upload-text">Добавьте jpeg/bmp/png картинку размером не более 10МБ 
                         <span className="sign-up__optional-input"> *необязательное поле</span>
                     </p>
@@ -380,7 +170,6 @@ function Register({ onRegister }) {
                         type="email"
                         name="email"
                         placeholder="Email"
-                        maxLength="255"
                         required
                         onBlur={event => handlerBlur(event)}
                         onChange={event => emailHandler(event)}
@@ -403,7 +192,6 @@ function Register({ onRegister }) {
                         onBlur={event => handlerBlur(event)}
                         onChange={ event => nameHandler(event)}
                         placeholder="Имя"
-                        maxLength="255"
                         required
                     />
                     {(nameDirty && nameError) &&
@@ -415,17 +203,13 @@ function Register({ onRegister }) {
                         </label>
                     }
 
-                    
                     <input
                         value={password}
                         id='sign-up-password-input'
                         className="sign-up__input sign-up__input_type_password"
                         type="password"
                         name="password"
-                        // onChange={handleChange}
                         placeholder="Пароль"
-                        // minLength="2"
-                        // maxLength="255"
                         required
                         onBlur={event => handlerBlur(event)}
                         onChange={event => passwordHandler(event)}
@@ -448,8 +232,6 @@ function Register({ onRegister }) {
                         onBlur={event => handlerBlur(event)}
                         onChange={event => passwordСonfirmationHandler(event)}
                         placeholder="Подтвердите пароль"
-                        // minLength="2"
-                        // maxLength="255"
                         required
                     />
                     {(passwordСonfirmationDirty && passwordСonfirmationError) &&
@@ -471,8 +253,7 @@ function Register({ onRegister }) {
                         Зарегистрироваться
                     </button>
                 </form>
-            </div>
-            
+            </div> 
         </section>
     );
 }

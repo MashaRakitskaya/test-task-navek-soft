@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 const escape = 27;
 
 function InfoTooltip({ title , isOpen, onClose, onOvarlayClose }) {
-
     useEffect(
         () => {
             if(!isOpen) return;

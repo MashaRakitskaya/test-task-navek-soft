@@ -9,12 +9,10 @@ function Login({ onLogin }) {
 
     //были или не были в input
     const [emailDirty, setEmailDirty] = useState(false);
-    //были или не были в input
     const [passwordDirty, setPasswordDirty] = useState(false);
 
-    //отражает ошибку email
+    //отражает ошибку под input
     const [emailError, setEmailError] = useState('Email не должен быть пустым');
-    //отражает ошибку password
     const [passwordError, setPasswordError] = useState('Пароль не должен быть пустым');
 
     //валидна форма или нет
@@ -72,7 +70,8 @@ function Login({ onLogin }) {
             setPasswordError('')
         }
     };
-
+    
+    //обработчик сабмита
     const handleSubmit = (event) => {
         event.preventDefault();
         onLogin(email, password);
@@ -83,7 +82,6 @@ function Login({ onLogin }) {
             <div className="sign-in__content">
                 <h3 className="sing-in__title">Вход</h3>
                 <form onSubmit={handleSubmit} className="sing-in__form" noValidate>
-                    
                     <input
                         value={email}
                         id='sing-in-email-input'
