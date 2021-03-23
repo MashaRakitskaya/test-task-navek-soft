@@ -1,5 +1,7 @@
 # Проект: Test task NavekSoft(React)
 
+[Проект на github-pages](https://masharakitskaya.github.io/test-task-navek-soft/)
+
 ### Описание проекта:
 Тестовое задание для компании NavekSoft со страницами регистрации, авторизации и главной страницей с карточками.
 
