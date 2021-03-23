@@ -22,6 +22,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
+  "homepage": "https://masharakitskaya.github.io/test-task-navek-soft/",
   "eslintConfig": {
     "extends": [
       "react-app",
