@@ -331,10 +331,20 @@ function Register({ onRegister }) {
     //     onRegister( data.avatar, data.email, data.name, data.password, data.password_confirmation);
     // };
 
+    // function checkEmail(response) {
+    //     // raises an error in case response status is not a success
+    //     if (response.status === 422 ) {
+    //         setEmailError('Пользователь с таким email уже существует')
+    //     } else {
+    //         setEmailError('')
+    //     }
+    // };
+
     const handleSubmit = (event) => {
         event.preventDefault();
         onRegister( avatar, email, name, password, password_confirmation);
     };
+
 
     
 

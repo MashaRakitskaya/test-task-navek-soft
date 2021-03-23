@@ -12,7 +12,7 @@ import ProtectedRoute from "./ProtectedRoute";
 // import api from "../utils/api";
 import * as api from "../utils/api";
 import * as auth from '../utils/auth';
-
+import InfoTooltip from "./InfoTooltip.js";
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
@@ -22,23 +22,42 @@ function App() {
     // const [currentUser, setCurrentUser] = useState({});
     // const [token, setToken] = useState(localStorage.getItem('token'));
 
+    const [isInfoTooltipInformation, setInfoTooltipInformation] = useState({title: "Вы успешно зарегистрировались!"});
+    const [isInfoTooltipPopupOpen, setInfoTooltipPopupOpen] = useState(false);
+
+    function handleOpenInfoTooltip() {
+        setInfoTooltipPopupOpen(true)
+    };
+    function closePopup() {
+        setInfoTooltipPopupOpen(false) 
+    };
+    function closePopupByOverlay(event) { 
+        if (event.target.classList.contains('popup')) {
+            closePopup()
+        }
+    };
+
     function handleRegister(avatar, email, name, password, password_confirmation) {
         // console.log(auth.register(avatar, email, name, password, password_confirmation));
         auth.register(avatar, email, name, password, password_confirmation)
         .then((result) => {
-            // handleInfoTooltip()
+            handleOpenInfoTooltip()
             console.log(result);
             history.push('/signin')
         })
         .catch((err)=> {
-            // handleInfoTooltip()
-            // setInfoTooltipInformation({title: "Что-то пошло не так! Попробуйте ещё раз.", icon: false})
+            handleOpenInfoTooltip()
+            if(`${err}` === 'Ошибка 422') {
+                setInfoTooltipInformation({title: "Пользователь с таким email уже существует!"});
+            } else {
+                setInfoTooltipInformation({title: "Что-то пошло не так!"});
+            }
             history.push('/signup')
             console.log(`${err}`)
         })
     };
 
-    function handleLogin (email, password) {
+    function handleLogin(email, password) {
         auth.authorize(email, password)
         .then((result) => {
             if (result.token.access_token) {
@@ -50,8 +69,16 @@ function App() {
                 history.push('/main');
             }
         })
-        .catch((err) => {
-            console.log(`${err}`);
+        .catch((err)=> {
+            handleOpenInfoTooltip()
+            // setInfoTooltipInformation({title: "Проверьте введенные данные!"});
+            if(`${err}` === 'Ошибка 422') {
+                setInfoTooltipInformation({title: "Неправильные данные, попробуйте еще раз!"});
+            }else {
+                setInfoTooltipInformation({title: "Что-то пошло не так!"});
+            }
+            history.push('/signip')
+            console.log(`${err}`)
         })
     };
 
@@ -78,8 +105,7 @@ function App() {
         const token = localStorage.getItem('token')
         api.getReviews(token)
         .then((result) =>{
-            console.log(result.data)
-            setReviews(result.data)
+            setReviews(result.data.slice(0, 15))
         })
         .catch(err => console.log(`Ошибка получения информации${err}`));
     };
@@ -98,6 +124,37 @@ function App() {
     useEffect(() => {
         handleTokenCheck();
     }, [handleTokenCheck]);
+
+
+    // const checkStatusEmail = (response) => {
+    //     if (response.status = 422) {
+          
+    //     } else {
+    //       var error = new Error(response.statusText)
+    //       error.response = response
+    //       return error
+    //     }
+    // }
+
+    // function checkEmail(response) {
+    //     // raises an error in case response status is not a success
+    //     if (response.status === 422 ) {
+          
+    //     } else {
+    //       var error = new Error(response.statusText)
+    //       error.response = response
+    //       return error
+    //     }
+    // };
+
+    // function checkEmail(response) {
+    //     // raises an error in case response status is not a success
+    //     if (response.status === 422 ) {
+    //         setEmailError('Пользователь с таким email уже существует')
+    //     } else {
+    //         setEmailError('')
+    //     }
+    // };
 
     return(
         <div className="page">
@@ -132,6 +189,13 @@ function App() {
                     </Switch>
 
                     {loggedIn && <Footer />}
+
+                    <InfoTooltip
+                      title={isInfoTooltipInformation.title}
+                      isOpen={isInfoTooltipPopupOpen}
+                      onClose={closePopup}
+                      onOvarlayClose={closePopupByOverlay}  
+                    />
                 {/* </CurrentUserContext.Provider> */}
             </div>
         </div>

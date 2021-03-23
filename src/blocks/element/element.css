@@ -1,6 +1,5 @@
 .element {
-    position: relative;
     background: #FFFFFF;
-    border-radius: 10px;
-    /* overflow: hidden; */
+    padding-left: 5px;
+    padding-top: 5px;
 }

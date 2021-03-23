@@ -58,3 +58,13 @@ export const authorize = (email, password) => {
 //   .then(response => checkAnswerCorrectness(response))
 //   .then(data => data)
 // };
+
+// const checkStatusEmail = (response) => {
+//   if (response.status = 422) {
+    
+//   } else {
+//     var error = new Error(response.statusText)
+//     error.response = response
+//     return error
+//   }
+// }

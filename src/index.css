@@ -30,12 +30,11 @@
 @import url(./blocks/sign-up/__input-box-img/sign-up__input-box-img.css);
 @import url(./blocks/sign-up/__input-img/sign-up__input-img.css);
 
-/* @import url(./blocks/sign-in/sign-in.css);
-@import url(./blocks/sign-in/__form/sign-in__form.css);
-@import url(./blocks/sign-in/__input/sign-in__input.css);
-@import url(./blocks/sign-in/__title/sign-in__title.css);
-@import url(./blocks/sign-in/__save/sign-in__save.css); */
-/* @import url(./blocks/sign-in/__input-label/sing-in__input-label.css); */
+@import url(./blocks/popup/popup.css);
+@import url(./blocks/popup/__content/popup__content.css);
+@import url(./blocks/popup/__close/popup__close.css);
+@import url(./blocks/popup/__title/popup__title.css);
+@import url(./blocks/popup/_opened/popup_opened.css);
 
 @import url(./blocks/elements/elements.css);
 @import url(./blocks/element/element.css);
