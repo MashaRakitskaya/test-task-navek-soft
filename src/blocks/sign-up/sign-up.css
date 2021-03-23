@@ -5,6 +5,5 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    /* max-width: 430px; */
     align-items: center;
 }
