@@ -39,6 +39,7 @@ function App() {
         .then((result) => {
             handleOpenInfoTooltip()
             // console.log(result);
+            setInfoTooltipInformation({title: "Вы успешно зарегистрировались!"});
             history.push('/signin')
         })
         .catch((err)=> {
