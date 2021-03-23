@@ -70,8 +70,7 @@ function App() {
             }
         })
         .catch((err)=> {
-            handleOpenInfoTooltip()
-            // setInfoTooltipInformation({title: "Проверьте введенные данные!"});
+            handleOpenInfoTooltip();
             if(`${err}` === 'Ошибка 422') {
                 setInfoTooltipInformation({title: "Неправильные данные, попробуйте еще раз!"});
             }else {
