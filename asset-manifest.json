@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/test-task-navek-soft/static/css/main.e9947c49.chunk.css",
+    "main.js": "/test-task-navek-soft/static/js/main.23fed5e3.chunk.js",
+    "main.js.map": "/test-task-navek-soft/static/js/main.23fed5e3.chunk.js.map",
+    "runtime-main.js": "/test-task-navek-soft/static/js/runtime-main.874cd5b2.js",
+    "runtime-main.js.map": "/test-task-navek-soft/static/js/runtime-main.874cd5b2.js.map",
+    "static/js/2.92592d1c.chunk.js": "/test-task-navek-soft/static/js/2.92592d1c.chunk.js",
+    "static/js/2.92592d1c.chunk.js.map": "/test-task-navek-soft/static/js/2.92592d1c.chunk.js.map",
+    "static/js/3.44880e70.chunk.js": "/test-task-navek-soft/static/js/3.44880e70.chunk.js",
+    "static/js/3.44880e70.chunk.js.map": "/test-task-navek-soft/static/js/3.44880e70.chunk.js.map",
+    "index.html": "/test-task-navek-soft/index.html",
+    "static/css/main.e9947c49.chunk.css.map": "/test-task-navek-soft/static/css/main.e9947c49.chunk.css.map",
+    "static/js/2.92592d1c.chunk.js.LICENSE.txt": "/test-task-navek-soft/static/js/2.92592d1c.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/test-task-navek-soft/static/media/close.44bb1e48.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.874cd5b2.js",
+    "static/js/2.92592d1c.chunk.js",
+    "static/css/main.e9947c49.chunk.css",
+    "static/js/main.23fed5e3.chunk.js"
+  ]
+}
